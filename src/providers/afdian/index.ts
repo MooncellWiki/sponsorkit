@@ -3,7 +3,7 @@ import { $fetch } from 'ofetch'
 import type { Provider, SponsorkitConfig, Sponsorship } from '../../types'
 import { fetchAfdianMonthlySponsors } from './get-monthly-orders'
 
-// afdian api docs https://afdian.net/p/9c65d9cc617011ed81c352540025c377
+// afdian api docs https://afdian.com/p/9c65d9cc617011ed81c352540025c377
 
 export const AfdianProvider: Provider = {
   name: 'afdian',

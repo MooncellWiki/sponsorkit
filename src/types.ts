@@ -150,7 +150,7 @@ export interface ProvidersConfig {
      *
      * Will read from `SPONSORKIT_AFDIAN_USER_ID` environment variable if not set.
      *
-     * @see https://afdian.net/dashboard/dev
+     * @see https://afdian.com/dashboard/dev
      */
     userId?: string
     /**
@@ -158,7 +158,7 @@ export interface ProvidersConfig {
      *
      * Will read from `SPONSORKIT_AFDIAN_TOKEN` environment variable if not set.
      *
-     * @see https://afdian.net/dashboard/dev
+     * @see https://afdian.com/dashboard/dev
      * @deprecated It's not recommended set this value directly, pass from env or use `.env` file.
      */
     token?: string

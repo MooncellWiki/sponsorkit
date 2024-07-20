@@ -11,7 +11,7 @@ export async function fetchAfdianMonthlySponsors(
     throw new Error('Afdian web auth_token are required')
 
   const orders: any[] = []
-  const ordersApi = 'https://afdian.net/api/my/sponsored-bill-filter'
+  const ordersApi = 'https://afdian.com/api/my/sponsored-bill-filter'
   let page = 1
   let has_more
   do {
@@ -94,7 +94,7 @@ export async function fetchAfdianMonthlySponsors(
         login: userId,
         name,
         avatarUrl,
-        linkUrl: `https://afdian.net/u/${userData.id}`,
+        linkUrl: `https://afdian.com/u/${userData.id}`,
       },
       // all_sum_amount is based on cny
       monthlyDollars: userData.plans.every((plan: any) => plan.isExpired)
