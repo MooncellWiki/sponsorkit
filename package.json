@@ -46,7 +46,7 @@
     "release": "bumpp && pnpm publish"
   },
   "dependencies": {
-    "@antfu/utils": "^0.7.8",
+    "@antfu/utils": "^0.7.10",
     "consola": "^3.2.3",
     "csv-parse": "^5.5.6",
     "d3-hierarchy": "^3.1.2",
@@ -54,26 +54,26 @@
     "node-html-parser": "^6.1.13",
     "normalize-url": "^8.0.1",
     "ofetch": "^1.3.4",
-    "p-limit": "^5.0.0",
+    "p-limit": "^6.1.0",
     "picocolors": "^1.0.1",
-    "sharp": "^0.33.3",
-    "unconfig": "^0.3.13",
+    "sharp": "^0.33.4",
+    "unconfig": "^0.4.5",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.18.0",
-    "@antfu/ni": "^0.21.12",
+    "@antfu/eslint-config": "^2.23.0",
+    "@antfu/ni": "^0.22.0",
     "@types/d3-hierarchy": "^3.1.7",
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.14.11",
     "@types/yargs": "^17.0.32",
     "bumpp": "^9.4.1",
-    "eslint": "^9.2.0",
+    "eslint": "^9.7.0",
     "esno": "^4.7.0",
-    "jiti": "^1.21.0",
-    "typescript": "^5.4.5",
+    "jiti": "^1.21.6",
+    "typescript": "^5.5.3",
     "unbuild": "^2.0.0",
-    "vite": "^5.2.11",
-    "vitest": "^1.6.0"
+    "vite": "^5.3.4",
+    "vitest": "^2.0.3"
   },
   "resolutions": {
     "@mooncellwiki/sponsorkit": "workspace:*"
