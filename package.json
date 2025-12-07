@@ -1,7 +1,7 @@
 {
   "name": "@mooncellwiki/sponsorkit",
   "type": "module",
-  "version": "17.0.0",
+  "version": "17.0.1",
   "packageManager": "pnpm@10.17.1",
   "description": "Toolkit for generating sponsors images",
   "author": "StarHeartHunt <starheart233@gmail.com>",
