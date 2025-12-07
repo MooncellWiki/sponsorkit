@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  sponsorkit: workspace:*
+  '@mooncellwiki/sponsorkit': workspace:*
 
 importers:
 
@@ -20,6 +20,9 @@ importers:
       consola:
         specifier: ^3.4.2
         version: 3.4.2
+      csv-parse:
+        specifier: ^6.1.0
+        version: 6.1.0
       dotenv:
         specifier: ^17.2.2
         version: 17.2.2
@@ -87,7 +90,7 @@ importers:
 
   example:
     devDependencies:
-      sponsorkit:
+      '@mooncellwiki/sponsorkit':
         specifier: workspace:*
         version: link:..
 
@@ -1153,6 +1156,9 @@ packages:
   csso@5.0.5:
     resolution: {integrity: sha512-0LrrStPOdJj+SPCCrGhzryycLjwcgUSHBtxNA8aIDxf0GLsRh1cKYhB00Gd1lDOS4yGH69+SNn13+TWbVHETFQ==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
+
+  csv-parse@6.1.0:
+    resolution: {integrity: sha512-CEE+jwpgLn+MmtCpVcPtiCZpVtB6Z2OKPTr34pycYYoL7sxdOkXDdQ4lRiw6ioC0q6BLqhc6cKweCVvral8yhw==}
 
   d3-hierarchy@3.1.2:
     resolution: {integrity: sha512-FX/9frcub54beBdugHjDCdikxThEqjnR93Qt7PvQTOHxyiNCAlvMrHhclk3cD5VeAaq9fxmfRp+CnWw9rEMBuA==}
@@ -3659,6 +3665,8 @@ snapshots:
   csso@5.0.5:
     dependencies:
       css-tree: 2.2.1
+
+  csv-parse@6.1.0: {}
 
   d3-hierarchy@3.1.2: {}
 

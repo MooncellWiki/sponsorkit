@@ -1,19 +1,18 @@
 {
-  "name": "sponsorkit",
+  "name": "@mooncellwiki/sponsorkit",
   "type": "module",
   "version": "17.0.0",
   "packageManager": "pnpm@10.17.1",
   "description": "Toolkit for generating sponsors images",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "author": "StarHeartHunt <starheart233@gmail.com>",
   "license": "MIT",
-  "funding": "https://github.com/sponsors/antfu",
-  "homepage": "https://github.com/antfu-collective/sponsorkit#readme",
+  "homepage": "https://github.com/MooncellWiki/sponsorkit#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antfu-collective/sponsorkit.git"
+    "url": "git+https://github.com/MooncellWiki/sponsorkit.git"
   },
   "bugs": {
-    "url": "https://github.com/antfu-collective/sponsorkit/issues"
+    "url": "https://github.com/MooncellWiki/sponsorkit/issues"
   },
   "keywords": [
     "sponsors",
@@ -48,6 +47,7 @@
     "ansis": "^4.1.0",
     "cac": "^6.7.14",
     "consola": "^3.4.2",
+    "csv-parse": "^6.1.0",
     "dotenv": "^17.2.2",
     "ofetch": "^1.4.1",
     "sharp": "^0.34.4",
@@ -73,6 +73,6 @@
     "vitest": "^3.2.4"
   },
   "resolutions": {
-    "sponsorkit": "workspace:*"
+    "@mooncellwiki/sponsorkit": "workspace:*"
   }
 }

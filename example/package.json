@@ -6,6 +6,6 @@
     "build:dev": "esno ../src/cli.ts"
   },
   "devDependencies": {
-    "sponsorkit": "workspace:*"
+    "@mooncellwiki/sponsorkit": "workspace:*"
   }
 }

@@ -75,7 +75,7 @@ export const outputFormats = ['svg', 'png', 'webp', 'json'] as const
 
 export type OutputFormat = typeof outputFormats[number]
 
-export type ProviderName = 'github' | 'patreon' | 'opencollective' | 'afdian' | 'polar' | 'liberapay'
+export type ProviderName = 'github' | 'patreon' | 'opencollective' | 'afdian' | 'mooncell' | 'polar' | 'liberapay'
 
 export type GitHubAccountType = 'user' | 'organization'
 
@@ -181,6 +181,14 @@ export interface ProvidersConfig {
      * @default 30
      */
     purchaseEffectivity?: number
+    /**
+     * Afdian Web Token got from document.cookie.
+     *
+     * Will read from `SPONSORKIT_AFDIAN_TOKEN` environment variable if not set.
+     *
+     * @deprecated It's not recommended set this value directly, pass from env or use `.env` file.
+     */
+    webAuthToken?: string
   }
 
   polar?: {
@@ -199,6 +207,10 @@ export interface ProvidersConfig {
      * Will read from `SPONSORKIT_POLAR_ORGANIZATION` environment variable if not set.
      */
     organization?: string
+  }
+
+  mooncell?: {
+    path?: string
   }
 
   liberapay?: {
