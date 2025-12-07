@@ -32,6 +32,9 @@ export function loadEnv(): Partial<SponsorkitConfig> {
       userId: process.env.SPONSORKIT_AFDIAN_USER_ID || process.env.AFDIAN_USER_ID,
       token: process.env.SPONSORKIT_AFDIAN_TOKEN || process.env.AFDIAN_TOKEN,
       exchangeRate: Number.parseFloat(process.env.SPONSORKIT_AFDIAN_EXCHANGE_RATE || process.env.AFDIAN_EXCHANGE_RATE || '0') || undefined,
+      webAuthToken: process.env.SPONSORKIT_AFDIAN_WEB_AUTH_TOKEN || process.env.AFDIAN_WEB_AUTH_TOKEN,
+      account: process.env.SPONSORKIT_AFDIAN_ACCOUNT || process.env.AFDIAN_ACCOUNT,
+      password: process.env.SPONSORKIT_AFDIAN_PASSWORD || process.env.AFDIAN_PASSWORD,
     },
     mooncell: {
       path: process.env.SPONSORKIT_MOONCELL_PATH || process.env.MOONCELL_PATH,

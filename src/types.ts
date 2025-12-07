@@ -189,6 +189,18 @@ export interface ProvidersConfig {
      * @deprecated It's not recommended set this value directly, pass from env or use `.env` file.
      */
     webAuthToken?: string
+    /**
+     * Afdian web account
+     *
+     * @deprecated It's not recommended set this value directly, pass from env or use `.env` file.
+     */
+    account?: string;
+    /**
+     * Afdian web password
+     *
+     * @deprecated It's not recommended set this value directly, pass from env or use `.env` file.
+     */
+    password?: string;
   }
 
   polar?: {

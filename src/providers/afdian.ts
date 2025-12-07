@@ -1,13 +1,77 @@
 import type { Provider, SponsorkitConfig, Sponsorship } from '../types'
-import { createHash } from 'node:crypto'
+import { Buffer } from 'node:buffer'
+import { constants, createCipheriv, createHash, publicEncrypt, randomBytes } from 'node:crypto'
 import { $fetch } from 'ofetch'
+
+const RSA_PUBLIC_KEY = Buffer.from(
+  `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4Top/Mt2ofZeAIMh9AHw
+4d6Q+iyBxXbou+1mbhclLsB3YSMbFD+X6QnlAY1vMHO7fteKevn25iVIELBXsmcQ
+S5/oA2hO3VHi9uTG3XmYVcrw94cK5ppODeBOV0hV0dFS/NOT66pqPAuLW6HgRrnt
+gznl4ju6ttOddDNJ7e97RH9qrZEpzjl9GqVZQ2sFdmmw4dNET9fP9HWq8VlfW+BF
+G7TuxzEjZNcxAgrG/f41Z0+G3RxAccF8LOxu4Ztk1ZDdv5xukdx2ukoEhgdmKUkD
+v/W5r3HPj1uX+buzDi/UsumMblWXb0Bys7ENhZ/n4+naZ3b3rJ32DnTF7brVHncu
+7wIDAQAB
+-----END PUBLIC KEY-----`,
+)
+
+const AES_IV = Buffer.from('7brVHncu7wIDAQAB')
+
+function getRandomKey() {
+  return randomBytes(16).toString('hex')
+}
+
+function encryptFieldAES(key: string, text: string) {
+  const cipher = createCipheriv('aes-256-cbc', key, AES_IV)
+
+  let encrypted = cipher.update(text, 'utf8', 'base64')
+  encrypted += cipher.final('base64')
+
+  return encrypted
+}
+
+function encryptFieldRSA(text: string) {
+  const buffer = Buffer.from(text, 'utf8')
+  const encrypted = publicEncrypt(
+    {
+      key: RSA_PUBLIC_KEY,
+      padding: constants.RSA_PKCS1_PADDING,
+    },
+    buffer,
+  )
+
+  return encrypted.toString('base64')
+}
+
+export async function getAfdianWebAuthToken(account: string, password: string): Promise<string> {
+  const randomKey = getRandomKey()
+
+  const tokenResponse = await $fetch('https://afdian.com/api/passport/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    responseType: 'json',
+    body: {
+      account: encryptFieldAES(randomKey, account),
+      password: encryptFieldAES(randomKey, password),
+      mp_token: -1,
+      ar_ept: encryptFieldRSA(randomKey),
+    },
+  })
+
+  return tokenResponse?.data?.auth_token || ''
+}
 
 export async function fetchAfdianMonthlySponsors(
   options: SponsorkitConfig['afdian'] = {},
 ): Promise<Sponsorship[]> {
-  const { webAuthToken, exchangeRate = 6.5 } = options
+  const { webAuthToken: webAuthTokenLocal, account, password, exchangeRate = 6.5 } = options
 
-  if (!webAuthToken)
+  const webAuthTokenFromApi = account && password ? await getAfdianWebAuthToken(account, password) : ''
+  const webAuthToken = webAuthTokenFromApi || webAuthTokenLocal
+
+  if (!webAuthToken && !webAuthTokenFromApi)
     throw new Error('Afdian web auth_token are required')
 
   const orders: any[] = []
